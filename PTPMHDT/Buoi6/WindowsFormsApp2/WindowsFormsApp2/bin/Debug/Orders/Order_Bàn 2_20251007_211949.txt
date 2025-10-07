@@ -1,0 +1,8 @@
+Bàn: Bàn 2
+Món	Số lượng
+7 up	2
+Cam	2
+Mỳ xào hải sản	1
+Khoai tây chiên	1
+Cơm chiên trứng	1
+Buger bò nướng	1

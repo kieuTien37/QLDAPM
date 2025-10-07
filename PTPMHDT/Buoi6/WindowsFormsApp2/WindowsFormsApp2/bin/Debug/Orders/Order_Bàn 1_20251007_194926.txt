@@ -1,0 +1,11 @@
+Bàn: Bàn 1
+Món	Số lượng
+Cơm chiên trứng	1
+Bánh mỳ ốp la	1
+Cafe	1
+7 up	1
+Cam	1
+Buger bò nướng	1
+Đùi gà rán	1
+Mỳ xào hải sản	1
+Bún bò Huế	1
