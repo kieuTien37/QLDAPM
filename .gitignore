@@ -32,6 +32,7 @@ env/
 *.swp
 *.swo
 *~
+.vs/
 
 # OS
 .DS_Store
@@ -45,6 +46,16 @@ Thumbs.db
 *.tmp
 temp/
 tmp/
+*.log
+
+# .NET / C#
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.pdb
+*.dbmdl
 
 # Model files (nếu quá lớn, có thể uncomment)
 # *.pt
