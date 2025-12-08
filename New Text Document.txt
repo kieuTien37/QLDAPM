@@ -1,0 +1,69 @@
+1. Tiền xử lý dữ liệu (Preprocessing)
+
+Chia tập dữ liệu:
+
+70% train, 20% validation, 10% test.
+
+Chuẩn hóa ảnh: resize về kích thước chuẩn (ví dụ 640×640), normalize pixel về [0, 1].
+
+Tăng dữ liệu (Data Augmentation): xoay, lật, crop, thay đổi độ sáng, độ tương phản, v.v.
+
+2. Huấn luyện mô hình (Training Stage)
+Mô hình 1 — Object Detection (YOLOv4 / YOLOv8)
+
+Mục tiêu: phát hiện người, xe, đồ vật trong ảnh.
+
+Đầu ra: tọa độ (x, y, w, h) của các vật thể.
+
+File kết quả: best.pt hoặc best.weights.
+
+Mô hình 2 — Gender Classification
+
+Input: ảnh crop của người từ YOLO.
+
+Output: "male" hoặc "female".
+
+Model: CNN, MobileNet hoặc ResNet.
+
+File kết quả: gender_model.h5 hoặc best_gender.pt.
+
+Mô hình 3 — Color Classification
+
+Input: vùng quần áo crop từ YOLO box.
+
+Output: "red", "blue", "green", "black", …
+
+File kết quả: color_model.h5.
+
+3. Đánh giá mô hình (Evaluation)
+
+YOLO: dùng mAP (mean Average Precision), IoU.
+
+Phân loại: dùng Confusion Matrix (sklearn + seaborn).
+
+Xác định tỷ lệ dự đoán đúng/sai cho từng lớp.
+
+4. Kết hợp mô hình (Integration Pipeline)
+
+Dùng YOLO phát hiện vùng người trong ảnh/video.
+
+Crop vùng người → đưa vào model giới tính.
+
+Crop vùng quần áo → đưa vào model nhận diện màu sắc.
+
+
+
+bước 1: 
+cd ultralytics
+
+bước 2:
+py -3.11 -m venv .venv
+
+bước 3:
+.\.venv\Scripts\Activate.ps1
+
+bước 4:
+yolo detect train data=coco128.yaml model=yolo11n.pt epochs=100 imgsz=640
+
+yolo detect predict model=runs/detect/train2/weights/best.pt source='testimage'
+   
